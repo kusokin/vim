@@ -1,5 +1,5 @@
-" php¼Â¹Ô 		--	\+r
-" php¥·¥ó¥¿¥Ã¥¯¥¹ 	--	,+l
+" phpå®Ÿè¡Œ 		--	\+r
+" phpã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ 	--	,+l
 
 set title
 syntax on
@@ -12,7 +12,7 @@ set showcmd
 set laststatus=2
 "set statusline=%<%F\ %r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v(ASCII=%03.3b,HEX=%02.2B)\ %l/%L(%P)%m
 
-"omuniÊä´°
+"omuniè£œå®Œ
 setlocal omnifunc=syntaxcomplete#Complete
 
 "encode
@@ -56,7 +56,7 @@ autocmd FileType php let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k~/.vim/di
 
 let g:AutoComplPop_IgnoreCaseOption = 1
 
-"<TAB>¤ÇÊä´°
+"<TAB>ã§è£œå®Œ
 " {{{ Autocompletion using the TAB key
 " This function determines, wether we are on the start of the line text (then tab indents) or
 " if we want to try autocompletion
@@ -79,30 +79,25 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "au   BufEnter *   execute ":lcd " . expand("%:p:h")
 
 "-------------------------------------------------------------------------------
-" ¸¡º÷ÀßÄê
-set wrapscan   " ºÇ¸å¤Ş¤Ç¸¡º÷¤·¤¿¤éÀèÆ¬¤ØÌá¤ë
-set ignorecase " ÂçÊ¸»ú¾®Ê¸»úÌµ»ë
-set smartcase  " ÂçÊ¸»ú¤Ç¤Ï¤¸¤á¤¿¤éÂçÊ¸»ú¾®Ê¸»úÌµ»ë¤·¤Ê¤¤
-set incsearch  " ¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¥µ¡¼¥Á
-set hlsearch   " ¸¡º÷Ê¸»ú¤ò¥Ï¥¤¥é¥¤¥È
+" æ¤œç´¢è¨­å®š
+set wrapscan   " æœ€å¾Œã¾ã§æ¤œç´¢ã—ãŸã‚‰å…ˆé ­ã¸æˆ»ã‚‹
+set ignorecase " å¤§æ–‡å­—å°æ–‡å­—ç„¡è¦–
+set smartcase  " å¤§æ–‡å­—ã§ã¯ã˜ã‚ãŸã‚‰å¤§æ–‡å­—å°æ–‡å­—ç„¡è¦–ã—ãªã„
+set incsearch  " ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«ã‚µãƒ¼ãƒ
+set hlsearch   " æ¤œç´¢æ–‡å­—ã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆ
  
-"ÁªÂò¤·¤¿Ê¸»úÎó¤ò¸¡º÷
+"é¸æŠã—ãŸæ–‡å­—åˆ—ã‚’æ¤œç´¢
 vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-"ÁªÂò¤·¤¿Ê¸»úÎó¤òÃÖ´¹
+"é¸æŠã—ãŸæ–‡å­—åˆ—ã‚’ç½®æ›
 vnoremap /r "xy:%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
  
-"ÊÔ½¸Ãæ¤Î¥Õ¥¡¥¤¥ë¥Ñ¥¹¤Ë°ÜÆ°
+"ç·¨é›†ä¸­ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã«ç§»å‹•
 nmap <Space>cd :lcd %:p:h<CR>
 
-"Á´³Ñ¥¹¥Ú¡¼¥¹¤ò»ë³Ğ²½
+"å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’è¦–è¦šåŒ–
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /¡¡/
+au BufNewFile,BufRead * match ZenkakuSpace /ã€€/
 
-" blogit
-let blog_name='t2log'
-let blogit_username='yhvh'
-let blogit_password='Messatu'
-let blogit_url='https://otetsu.dip.jp/blog/wp/xmlrpc.php'
 
 let blogit_unformat='pandoc --from=html --to=rst --reference-links'
 let blogit_format='pandoc --from=rst --to=html --no-wrap'
